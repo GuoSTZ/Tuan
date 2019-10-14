@@ -2,15 +2,8 @@
   "code": 0,
   "message": "success",
   "data": {
-    "items": [
-      {
-        "name": "小明",
-        "age": "21"
-      },
-      {
-        "name": "小微",
-        "age": "19"
-      }
-    ]
+    "name": "小微",
+    "age": "19",
+    "sex": 2
   }
 }
