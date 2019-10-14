@@ -3,7 +3,7 @@
   "message": "success",
   "data": {
     "name": "小微",
-    "age": "19",
+    "age": 19,
     "sex": 2
   }
 }
