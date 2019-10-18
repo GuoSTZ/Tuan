@@ -6,17 +6,20 @@
       {
         "name": "小夏",
         "age": 10,
-        "sex": 2
+        "sex": 2,
+        "sexText": "女"
       },
       {
         "name": "小微",
         "age": 21,
-        "sex": 2
+        "sex": 2,
+        "sexText": "女"
       },
       {
         "name": "小如",
         "age": 32,
-        "sex": 2
+        "sex": 2,
+        "sexText": "女"
       }
     ]
 
