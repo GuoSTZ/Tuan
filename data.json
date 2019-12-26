@@ -7,19 +7,22 @@
         "name": "小陈",
         "age": 10,
         "sex": 2,
-        "sexText": "女"
+        "sexText": "女",
+        "address": "zhejiang"
       },
       {
         "name": "小名",
         "age": 21,
         "sex": 2,
-        "sexText": "女"
+        "sexText": "女",
+        "address": "beijing"
       },
       {
         "name": "小安",
         "age": 32,
         "sex": 2,
-        "sexText": "女"
+        "sexText": "女",
+        "address": "taiwan"
       }
     ]
 
