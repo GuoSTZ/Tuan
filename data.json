@@ -4,19 +4,19 @@
   "data": {
     "items":[
       {
-        "name": "小夏",
+        "name": "小陈",
         "age": 10,
         "sex": 2,
         "sexText": "女"
       },
       {
-        "name": "小微",
+        "name": "小名",
         "age": 21,
         "sex": 2,
         "sexText": "女"
       },
       {
-        "name": "小如",
+        "name": "小安",
         "age": 32,
         "sex": 2,
         "sexText": "女"
