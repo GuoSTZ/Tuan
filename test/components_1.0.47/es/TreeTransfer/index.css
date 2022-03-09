@@ -1,0 +1,20 @@
+.tree-transfer .ant-transfer-list .ant-transfer-list-body-customize-wrapper, 
+.tree-transfer .ant-transfer-list .ant-transfer-list-content {
+  height: calc( 100% - 44px );
+  min-width: 250px;
+  overflow: auto;
+}
+.tree-transfer .ant-transfer-list .ant-transfer-list-body-customize-wrapper {
+  padding: 0;
+}
+.tree-transfer .ant-transfer-list .ant-tree-node-content-wrapper, 
+.tree-transfer .ant-transfer-list .ant-transfer-list-content-item-text {
+  display: inline-block;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tree-transfer .ant-transfer-list .ant-transfer-list-content-item-text {
+  vertical-align: sub;
+}
