@@ -1,0 +1,258 @@
+{
+  "form": {
+    "labelCol": 6,
+    "wrapperCol": 10
+  },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "isEditPage": {
+        "type": "boolean",
+        "default": false,
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-display": "hidden"
+      },
+      "id": {
+        "type": "number",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-display": "hidden"
+      },
+      "dsType": {
+        "type": "string",
+        "title": "数据源类型",
+        "default": "Oracle",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-component-props": {},
+        "x-display": "hidden",
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "dsVersion": {
+        "type": "string",
+        "title": "数据源版本",
+        "x-decorator": "FormItem",
+        "x-component": "Select",
+        "x-component-props": {
+          "placeholder": "请选择数据源版本"
+        },
+        "x-reactions": "{{useDataSource(getDsVersion('Oracle'))}}",
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "dsName": {
+        "type": "string",
+        "title": "数据源名称",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-decorator-props": {},
+        "x-component-props": {
+          "placeholder": "请输入数据源名称"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入数据源名称"
+          },
+          {
+            "validateSpecialCharacters": true,
+            "message": "只允许输入字母、中文、数字、下划线、短横线"
+          },
+          {
+            "max": 50,
+            "message": "数据源名称长度为1-50个字符，请重新输入"
+          },
+          {
+            "whitespace": true,
+            "message": "请不要输入非法字符"
+          }
+        ],
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "dsGroupId": {
+        "type": "string",
+        "title": "数据源分组",
+        "x-decorator": "FormItem",
+        "x-component": "Select",
+        "x-component-props": {
+          "placeholder": "请选择数据源分组"
+        },
+        "x-reactions": "{{useAsyncDataSource(useFetchPost(`${CAPAA_API_PREFIX}/dsMgr/dsGroup/query`,{isPage: false}),dealDsGroupData)}}"
+      },
+      "address": {
+        "type": "string",
+        "title": "IP地址/域名",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-component-props": {
+          "placeholder": "请输入IP地址/域名"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入IP地址/域名"
+          },
+          {
+            "validateIpDomain": true,
+            "message": "ip地址/域名不正确"
+          }
+        ],
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "port": {
+        "type": "string",
+        "title": "端口",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-component-props": {
+          "placeholder": "请输入端口"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入端口"
+          },
+          {
+            "validatePort": true,
+            "message": "端口长度为1-5个数字，最大端口号为65535，请重新输入"
+          }
+        ],
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "serviceName": {
+        "type": "string",
+        "title": "服务名/库名",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-component-props": {
+          "placeholder": "请输入服务名/库名"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入服务名/库名"
+          },
+          {
+            "max": 50,
+            "message": "服务名/库名长度为1-50个字符，请重新输入"
+          },
+          {
+            "validateWhiteSpaceAnywhere": true,
+            "message": "只允许输入英文字母、中文、数字和特殊字符"
+          }
+        ],
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "instanceName": {
+        "type": "string",
+        "title": "实例名",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-component-props": {
+          "placeholder": "请输入实例名"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入实例名"
+          },
+          {
+            "max": 50,
+            "message": "实例名长度为1-50个字符，请重新输入"
+          },
+          {
+            "validateWhiteSpaceAnywhere": true,
+            "message": "只允许输入英文字母、中文、数字和特殊字符"
+          }
+        ],
+        "x-disabled": "{{$values['isEditPage']}}"
+      },
+      "userName": {
+        "type": "string",
+        "title": "数据源用户名",
+        "x-decorator": "FormItem",
+        "x-component": "Input",
+        "x-component-props": {
+          "placeholder": "请输入数据源用户名"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入数据源用户名"
+          },
+          {
+            "max": 50,
+            "message": "数据源用户名长度为1-50个字符，请重新输入"
+          }
+        ]
+      },
+      "password": {
+        "type": "string",
+        "title": "数据源密码",
+        "x-decorator": "FormItem",
+        "x-component": "Input.Password",
+        "x-component-props": {
+          "placeholder": "请输入数据源密码"
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请输入数据源密码"
+          },
+          {
+            "max": 50,
+            "message": "数据源密码长度为1-50个字符，请重新输入"
+          }
+        ]
+      },
+      "dbTest": {
+        "type": "string",
+        "title": "测试数据源",
+        "x-decorator": "FormItem",
+        "x-component": "TestButton"
+      },
+      "schemaDiscoverSwitch": {
+        "type": "boolean",
+        "title": "未知schema发现",
+        "default": false,
+        "x-decorator": "FormItem",
+        "x-decorator-props": {
+          "tooltip": "数据库新增加的schema可以自动发现结果，添加到敏感资产里面。"
+        },
+        "x-component": "Radio.Group",
+        "x-reactions": "{{useDataSource(dicts('dbm_dsSchemaDiscoverSwitch'))}}"
+      },
+      "racSwitch": {
+        "type": "boolean",
+        "title": "多节点",
+        "default": false,
+        "x-decorator": "FormItem",
+        "x-component": "Radio.Group",
+        "x-reactions": "{{useDataSource(dicts('dbm_dsRacSwitchStatus'))}}"
+      },
+      "racList": {
+        "type": "object",
+        "x-decorator": "FormItem",
+        "x-component": "EditTable",
+        "x-reactions": {
+          "dependencies": ["racSwitch"],
+          "fulfill": {
+            "schema": {
+              "x-visible": "{{$deps[0] == true}}"
+            }
+          }
+        },
+        "x-validator": [
+          {
+            "required": true,
+            "message": "请填写多节点信息"
+          },
+          {
+            "validateNodeNameSame": true,
+            "message": "节点名称不能重复"
+          }
+        ]
+      }
+    }
+  }
+}
